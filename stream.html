@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+
+<body>
+    <h1 id="displayResult" style="color: purple">
+        
+    </h1>
+    
+    
+ <script>
+    
+    const animals = ['dog', 'cat', 'hippopotamus', 'squid', 'unicorn'];
+      const filtered = animals.filter((val)=>val.length<8)
+      .map((val)=> val+'!')
+      .map((val) => val.charAt(0).toUpperCase() + val.slice(1))
+        .reduce((acc,val, index, array)=>{
+            if(index==array.length-1){
+                accFinal = (acc+=val);
+                } else {
+                    accFinal = (acc+=val+', ');
+                }
+        
+          return accFinal;
+      }, 'Animals: ');
+     
+     let myfiltered = document.createElement('span');
+    myfiltered.innerHTML = filtered;
+     
+     const container = document.getElementById('displayResult');
+    container.appendChild(myfiltered);
+    
+    </script>
+
+    
+</body>
+</html>
